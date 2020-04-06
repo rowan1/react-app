@@ -30,28 +30,22 @@ const Segment = (props) =>{
 }
 
 class App extends React.Component {
-    constructor(props){
-        super(props);
+    // constructor(props){
+    //     super(props);
 
-        this.state = {
-            lat:null,
-            errorMessage: ''
-        }
-        window.navigator.geolocation.getCurrentPosition(
-            (position)=> {
-                this.setState({
-                    lat: position.coords.latitude
-                })
-            },
-            (err)=>
-                this.setState({
-                errorMessage: err.message,
-            })
-        );
-    }
+    //     this.state = {
+    //         lat:null,
+    //         errorMessage: ''
+    //     }
+    // }
+    state = { lat: null, errorMessage: ''}
 
     componentDidMount(){
         console.log("The component was rendered")
+        window.navigator.geolocation.getCurrentPosition(
+            (position)=> this.setState({lat: position.coords.latitude}), 
+            (err)=>this.setState({errorMessage: err.message})
+        );
     }
 
     componentDidUpdate(){
