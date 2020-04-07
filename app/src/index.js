@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import CommentDetail from './CommentDetail';
 import ApprovalCard from './ApprovalCard';
-
+import SeasonDisplay from './seasons/SeasonDisplay'
 const AppFunction = () =>{
 
     return (
@@ -62,9 +62,7 @@ class App extends React.Component {
         }
         if(!this.state.errorMessage && this.state.lat){
             return (
-                <div>
-                    Latitued: {this.state.lat} 
-                </div>
+                <SeasonDisplay lat = {this.state.lat}/>
                 );
         }else{
             return(
